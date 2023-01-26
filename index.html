@@ -1,0 +1,345 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dotEmotions Free Multiplayer Strategy HTML5 Game by ipro8g@gmail.com</title>
+    <meta name="description" content="Play dotEmotions now, a Free Multiplayer Online HTML5 Game. Play with or meet new        friends anywhere, no downloads with challenges." />
+<meta name="keywords" content="Play, dotEmotions, now, Free, Strategy, Multiplayer, Online, HTML5, Game, friends, anywhere, no, downloads, dots, challenges, 2d, advanced, vs, ai, computer, players, browser, custom, ui, theme, interface, fast, exp, f2p, free to play, free offers, game, games, NO cheaters, NO download, NO hackers, NO installation, private source, public game, strategy, turn based, unique, america, peru, force, history, zero" />
+	<link rel="icon" href="img/web_icon.svg" type="image/icon type">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<div id="simpleModal" class="modal">
+
+    
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+        
+            <div id="modal_third_title">
+                
+                <b>Enter New Name</b>
+
+                <span class="closeBtn">&times;</span>
+            
+            </div>
+        
+            <b id="modal_title"></b>
+        
+            <div class="modal_first">
+            
+                <b>Select Size</b>
+
+                <span class="closeBtn">&times;</span>
+            
+            </div>
+            
+        </div>
+        
+        <div class="modal-body">
+        
+            <div class="modal_third">
+            
+                <div class="grid-itemb2">
+                
+                    <h3>Player</h3>
+                    
+                    <img src="" id="team_img2" style="width:50px;height:50px;margin-left:30px;"></img>
+                    
+                    <select id="msel2"></select>
+                    
+                    <p id="p2"></p>
+                
+                </div>
+                
+                <input type="text" id="input2"></input>
+                
+                <button class="btn_go" onclick="new_name_btn()">OK</button>
+            
+            </div>
+        
+            <div class="modal_first">
+
+            <div class="modal-cont">
+            
+                <canvas id="small_canvas" class="selected_canvas" width="90px" height="90px" onclick="select_size(this)" data-size="small">
+                </canvas>
+            
+                <canvas id="medium_canvas" class="non_selected" width="90px" height="90px" onclick="select_size(this)" data-size="medium">
+                </canvas>
+                
+            </div>
+            
+            <div class="modal-cont">
+            
+                 <b>small</b>
+                 
+                 <b>medium</b>
+                 
+            </div>
+            
+            <div class="modal-cont-go">
+            
+                <button class="btn_go" onclick="go_start()">GO</button>
+            
+            </div>
+            
+            </div>
+            
+            <div id="modal_second" class="modal_second">
+            
+            
+            
+            </div>
+            
+            <div id="modal_count">
+            
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="vertical_container">
+
+    <div id="console_container">
+
+        <div id="console_user" class="console_user"><br><br></div>
+        
+        <div id="chat_box">
+        
+            <input id="chat_text" type="text" required></input>
+            
+            <div style="display:flex;flex-direction:row;margin:10px;">
+        
+                <button id="btn_chat" onclick="chat()">send</button>&nbsp;
+                
+                <input type="checkbox" id="chat_check" name="" checked="checked" style="cursor:pointer;">&nbsp;
+                
+                <b>all</b>&nbsp;
+                
+                <img src="img/pacman.png" width="20px" height="20px"></img>
+            
+            </div>
+        
+        </div>
+        
+    </div>
+    
+	<div id="top_container">
+	
+	    <div class="canvas_container" id="canvas_container">
+	    
+	        <div class="canvases">
+	
+	            <canvas id="canvas2"  width="780px" height="800px">
+                </canvas>
+	
+		        <canvas id="canvas"  width="780px" height="800px">
+                </canvas>
+            
+            </div>
+            
+            <div class="players_container" id="players_container">
+            </div>
+        </div>
+
+        <div class="room_inside" id="room_inside">
+
+            <div id="start_btn" class="grid-itema" onclick="" style="cursor:pointer;"><center>
+
+                <img src="./img/start.png" height="50px" width="50px" onclick="start_game()"></img>
+
+                <h3>Start Game</h3>
+
+            </div>
+
+            <div id="exit_btn" class ="grid-itema" onclick="exit_room()" style="cursor:pointer;"><center>
+
+                <img src="./img/exit.png" height="50px" width="50px"></img>
+
+                <h3>Exit Room</h3>
+
+            </div>
+
+        </div>
+        
+		<div class="room_container" id="room_container">
+
+            <div class ="grid-itema" onclick="create_room()" style="cursor:pointer;"><center>
+
+                <img src="./img/plus.png" height="50px" width="50px"></img>
+
+                <h3>Create Game</h3>
+
+            </div>
+
+        </div>
+	
+	</div>
+	
+    
+    
+    <div id="horizontal_container">
+	
+		<div id="monitor"></div>
+
+        <canvas id="ani_canvas" height="250px" style="z-index:1;position:absolute;"></canvas>
+        <canvas id="ani_canvas2" height="250px" style="z-index:2;position:absolute;"></canvas>
+
+    	<div id="msg_box">
+    	
+    	    <br>
+    	
+    	    <h3 id="h1"></h3><button id="btn_name" onclick="change_name()">change name</button>
+    	    
+    	    <br><br>
+    	    
+    	    <h4 id="h2" style="color:white;"></h4>
+    	
+    	    <div id="dom_users_list"></div>
+    	
+    	</div>
+	
+	</div>
+
+</div>
+
+<script src="./js/squares.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/pvp.js"></script>
+
+<img src="./img/kids.png" style="display:none;" id="kids_img">
+
+<img src="./img/sign1.png" style="display:none;" id="sign1_img">
+<img src="./img/sign2.png" style="display:none;" id="sign2_img">
+<img src="./img/sign3.png" style="display:none;" id="sign3_img">
+<img src="./img/sign4.png" style="display:none;" id="sign4_img">
+
+<img src="./img/0.png" style="display:none;" class="team_img">
+<img src="./img/1.png" style="display:none;" class="team_img">
+<img src="./img/2.png" style="display:none;" class="team_img">
+<img src="./img/3.png" style="display:none;" class="team_img">
+<img src="./img/4.png" style="display:none;" class="team_img">
+<img src="./img/5.png" style="display:none;" class="team_img">
+<img src="./img/6.png" style="display:none;" class="team_img">
+<img src="./img/7.png" style="display:none;" class="team_img">
+<img src="./img/8.png" style="display:none;" class="team_img">
+<img src="./img/9.png" style="display:none;" class="team_img">
+<img src="./img/10.png" style="display:none;" class="team_img">
+<img src="./img/11.png" style="display:none;" class="team_img">
+<img src="./img/12.png" style="display:none;" class="team_img">
+<img src="./img/13.png" style="display:none;" class="team_img">
+<img src="./img/14.png" style="display:none;" class="team_img">
+<img src="./img/15.png" style="display:none;" class="team_img">
+<img src="./img/16.png" style="display:none;" class="team_img">
+<img src="./img/17.png" style="display:none;" class="team_img">
+<img src="./img/18.png" style="display:none;" class="team_img">
+<img src="./img/19.png" style="display:none;" class="team_img">
+<img src="./img/20.png" style="display:none;" class="team_img">
+<img src="./img/21.png" style="display:none;" class="team_img">
+<img src="./img/22.png" style="display:none;" class="team_img">
+<img src="./img/23.png" style="display:none;" class="team_img">
+<img src="./img/24.png" style="display:none;" class="team_img">
+<img src="./img/25.png" style="display:none;" class="team_img">
+<img src="./img/26.png" style="display:none;" class="team_img">
+<img src="./img/27.png" style="display:none;" class="team_img">
+<img src="./img/28.png" style="display:none;" class="team_img">
+<img src="./img/29.png" style="display:none;" class="team_img">
+<img src="./img/30.png" style="display:none;" class="team_img">
+<img src="./img/31.png" style="display:none;" class="team_img">
+<img src="./img/32.png" style="display:none;" class="team_img">
+<img src="./img/33.png" style="display:none;" class="team_img">
+<img src="./img/34.png" style="display:none;" class="team_img">
+<img src="./img/35.png" style="display:none;" class="team_img">
+<img src="./img/36.png" style="display:none;" class="team_img">
+<img src="./img/37.png" style="display:none;" class="team_img">
+<img src="./img/38.png" style="display:none;" class="team_img">
+<img src="./img/39.png" style="display:none;" class="team_img">
+<img src="./img/40.png" style="display:none;" class="team_img">
+<img src="./img/41.png" style="display:none;" class="team_img">
+<img src="./img/42.png" style="display:none;" class="team_img">
+<img src="./img/43.png" style="display:none;" class="team_img">
+<img src="./img/44.png" style="display:none;" class="team_img">
+<img src="./img/45.png" style="display:none;" class="team_img">
+<img src="./img/46.png" style="display:none;" class="team_img">
+<img src="./img/47.png" style="display:none;" class="team_img">
+<img src="./img/48.png" style="display:none;" class="team_img">
+<img src="./img/49.png" style="display:none;" class="team_img">
+<img src="./img/50.png" style="display:none;" class="team_img">
+<img src="./img/51.png" style="display:none;" class="team_img">
+<img src="./img/52.png" style="display:none;" class="team_img">
+<img src="./img/53.png" style="display:none;" class="team_img">
+<img src="./img/54.png" style="display:none;" class="team_img">
+<img src="./img/55.png" style="display:none;" class="team_img">
+<img src="./img/56.png" style="display:none;" class="team_img">
+<img src="./img/57.png" style="display:none;" class="team_img">
+<img src="./img/58.png" style="display:none;" class="team_img">
+<img src="./img/59.png" style="display:none;" class="team_img">
+<img src="./img/60.png" style="display:none;" class="team_img">
+<img src="./img/61.png" style="display:none;" class="team_img">
+<img src="./img/62.png" style="display:none;" class="team_img">
+<img src="./img/63.png" style="display:none;" class="team_img">
+<img src="./img/64.png" style="display:none;" class="team_img">
+<img src="./img/65.png" style="display:none;" class="team_img">
+<img src="./img/66.png" style="display:none;" class="team_img">
+<img src="./img/67.png" style="display:none;" class="team_img">
+<img src="./img/68.png" style="display:none;" class="team_img">
+<img src="./img/69.png" style="display:none;" class="team_img">
+<img src="./img/70.png" style="display:none;" class="team_img">
+<img src="./img/71.png" style="display:none;" class="team_img">
+<img src="./img/72.png" style="display:none;" class="team_img">
+<img src="./img/73.png" style="display:none;" class="team_img">
+<img src="./img/74.png" style="display:none;" class="team_img">
+<img src="./img/75.png" style="display:none;" class="team_img">
+<img src="./img/76.png" style="display:none;" class="team_img">
+<img src="./img/77.png" style="display:none;" class="team_img">
+<img src="./img/78.png" style="display:none;" class="team_img">
+<img src="./img/79.png" style="display:none;" class="team_img">
+<img src="./img/80.png" style="display:none;" class="team_img">
+<img src="./img/81.png" style="display:none;" class="team_img">
+<img src="./img/82.png" style="display:none;" class="team_img">
+<img src="./img/83.png" style="display:none;" class="team_img">
+<img src="./img/84.png" style="display:none;" class="team_img">
+<img src="./img/85.png" style="display:none;" class="team_img">
+<img src="./img/86.png" style="display:none;" class="team_img">
+<img src="./img/87.png" style="display:none;" class="team_img">
+<img src="./img/88.png" style="display:none;" class="team_img">
+<img src="./img/89.png" style="display:none;" class="team_img">
+<img src="./img/90.png" style="display:none;" class="team_img">
+<img src="./img/91.png" style="display:none;" class="team_img">
+<img src="./img/92.png" style="display:none;" class="team_img">
+<img src="./img/93.png" style="display:none;" class="team_img">
+<img src="./img/94.png" style="display:none;" class="team_img">
+<img src="./img/95.png" style="display:none;" class="team_img">
+<img src="./img/96.png" style="display:none;" class="team_img">
+<img src="./img/97.png" style="display:none;" class="team_img">
+<img src="./img/98.png" style="display:none;" class="team_img">
+<img src="./img/99.png" style="display:none;" class="team_img">
+<img src="./img/100.png" style="display:none;" class="team_img">
+<img src="./img/101.png" style="display:none;" class="team_img">
+<img src="./img/102.png" style="display:none;" class="team_img">
+<img src="./img/103.png" style="display:none;" class="team_img">
+<img src="./img/104.png" style="display:none;" class="team_img">
+<img src="./img/105.png" style="display:none;" class="team_img">
+<img src="./img/106.png" style="display:none;" class="team_img">
+<img src="./img/107.png" style="display:none;" class="team_img">
+<img src="./img/108.png" style="display:none;" class="team_img">
+<img src="./img/109.png" style="display:none;" class="team_img">
+<img src="./img/110.png" style="display:none;" class="team_img">
+<img src="./img/0.png" style="display:none;" class="team_img">
+
+<div id="pure" class=""></div>
+
+<div class="notify" id="notifyType"></div>
+
+</body>
+
+</html>

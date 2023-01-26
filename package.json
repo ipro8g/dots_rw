@@ -1,0 +1,21 @@
+{
+  "name": "dot",
+  "version": "1.0.0",
+  "description": "HTML 5 strategy multiplayer multiplatform game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "canvas"
+  ],
+  "author": "voynich",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "ip": "^1.1.8",
+    "path": "^0.12.7"
+  }
+}

@@ -1,0 +1,882 @@
+body{
+	background:linear-gradient(to left,Indigo,DarkSlateBlue,Indigo);
+    font-family:"MeriendaOne";
+    text-shadow: 1px 1px Black; 
+    cursor:pointer; 
+}
+
+#modal_count{
+
+    text-align:center;
+}
+
+.team_img{
+
+    width:50px;
+    height:50px;
+    margin-left:30px;
+}
+
+.modal_second{
+
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.modal_third{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-around;
+}
+
+#modal_third_title{
+
+    margin-top:0px;
+    font-size:1rem;
+}
+
+#team_img2{
+
+    width:50px;
+    height:50px;
+}
+
+.canvases{
+
+    position:relative;
+    width:80%;
+}
+
+#canvas{
+
+    width:100%;
+    z-index:5;
+	height:400px;
+	margin:5px;
+	position:absolute;
+	border-radius:5px;
+	box-shadow: 0px 10px 10px black;
+}
+
+#canvas2{
+
+    width:100%;
+    cursor:pointer;
+	height:400px;
+	margin:5px;
+	position:absolute;
+    z-index:6;
+}
+
+
+.teams_dom_scores{
+
+        margin-left:10px;
+        font-size:1.2rem;
+        color:White;
+}
+
+
+
+.players_i{
+
+    width:40px;
+    height:40px;
+    margin-top:10px;
+}
+
+.players_it{
+
+    width:20px;
+    height:20px;
+    margin-top:5px;
+}
+
+.players_p, .players_dom_scores{
+
+    color:White;
+    margin-left:15px;
+}
+
+
+
+.players_div{
+
+    border:none;
+    padding-left:7px;
+	transition: .1s ease-in-out;
+}
+
+.players_div_bottom{
+
+    border:none;
+    padding-left:7px;
+    margin-top:20px;
+}
+
+.players_active_div{
+
+    border:5px solid LightSeaGreen;
+    border-radius:5px;
+    width:250px;
+    padding-left:5px;
+    background-color:MediumSlateBlue;
+	transition: .1s ease-in-out;
+    box-shadow: 0px 10px 10px -6px black;
+}
+
+.players_container{
+
+    width:20%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    z-index:7;
+}
+
+.selected_canvas{
+
+    border:5px solid LightSeaGreen;
+    border-radius:5px;
+    margin-right:2px;
+    cursor:pointer;
+	transition: .1s ease-in-out;
+}
+
+.non_selected{
+
+    border:none;
+    margin-right:5px;
+    cursor:pointer;
+	transition: .1s ease-in-out;
+}
+
+.room_container{
+
+    background-color:DarkSalmon;
+    width:800px;
+    height:200px;
+    display:flex;
+    flex-wrap: wrap;
+    border-radius:10px;
+    box-shadow: 0px 10px 10px -6px black;
+}
+
+.canvas_container{
+
+    background-color:DarkSalmon;
+    width:100%;
+    height:600px;
+    border-radius:10px;
+    display:flex;
+    flex-direction:row;
+    box-shadow: 0px 10px 10px -6px black;
+}
+
+.no_canvas_container{
+
+    display:none;
+}
+
+.room_inside{
+
+    display:none;
+}
+
+.hide_grid-item{
+
+    display:none;
+}
+
+.hide_room_container{
+
+    display:none;
+}
+
+.grid-item, .grid-itema, .grid-itemb, .grid-itemb2{
+
+	background:linear-gradient(to left,MediumPurple,MediumSlateBlue,DarkSlateBlue);
+	box-shadow: 0px 10px 10px black;
+    width:120px;
+    height:180px;
+    margin:10px;
+    border-radius:10px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    color:white;
+    font-size:.8rem;
+}
+
+.grid-itema, .grid-itemb{
+    
+    justify-content:space-evenly;
+}
+
+.grid-itema h3, .grid-itemb h3, .grid-itemb2 h3{
+
+    color:Gold;
+    font-weight:bold;
+}
+
+.grid-item h3{
+
+    color:Gold;
+    font-weight:bold;
+    font-size:.8rem;
+    margin-bottom:0px;
+}
+
+.grid-item p, .grid-itema p, .grid-itemb p, .grid-itemb2 p{
+
+    font-size:.7rem;
+    margin-bottom:0px;
+}
+
+/* ALERT */
+
+.notify{ 
+  z-index:100;
+  position:fixed;
+  top:-150px;
+  width:100%;
+  height:100px;  
+  box-sizing:border-box;
+  color:Gold;  
+  text-align:center;
+  background:rgba(0,0,0,.8);
+  box-sizing:border-box;
+  transition:top .4s;
+  margin-top:15px;
+  font-size:2.5rem;
+  margin-top:20px;
+  letter-spacing:0.5rem;
+  font-style:italic;
+}
+
+.active{ 
+  z-index:100;
+  position:fixed;
+  top:150px;
+  width:100%;
+  height:100px;  
+  box-sizing:border-box;
+  color:Gold;  
+  text-align:center;
+  background:rgba(0,0,0,.8);
+  box-sizing:border-box;
+  transition:top .4s;
+  margin-top:15px;
+  font-size:2.5rem;
+  margin-top:20px;
+  letter-spacing:0.5rem;
+  font-style:italic;
+}
+
+
+
+/* ALERT */
+
+
+
+/* CLICK FLASH EFFECT */
+
+.pure_start{
+
+    display:none;
+}
+
+.pure_end{
+
+    background-color:white;
+    z-index:100;
+    border-radius:50%; 
+    animation: mypure 0.5s ease-out;
+    opacity: 0;
+    cursor:none;
+}
+
+
+@keyframes mypure{
+  0% {
+    
+    width:80px;
+    height:80px;   
+    opacity: 0.7;
+    background-color:white;
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
+    background-color:blue;
+  }
+  99% {
+    transform: scale(0.001, 0.001);
+    opacity: 0;
+    background-color:teal;
+    
+  }
+  100% {
+    transform: scale(0.001, 0.001);
+    opacity: 0.7;
+    background-color:blue;
+  }
+}
+
+/* CLICK FLASH EFFECT */
+
+
+
+#ani_box{
+
+    display:"none";
+}
+
+
+
+
+#chat_box{
+
+    width:40%;
+    color:white;
+	text-align:left;
+	margin-left:10px;
+	margin-top:10px;
+}
+
+#console_container{
+
+    width:100%;
+    display:flex;
+	flex-direction: row;
+    position:fixed;
+    top:0;  
+    z-index:11;  
+}
+
+.btn_name, #btn_name, #btn_chat, .btn_demo, .btn_go{
+
+    background-color:Black;
+    color:White;
+    cursor:pointer;
+    border-color:LightSeaGreen;
+    font-weight: bold;
+    padding:5px;
+    border-radius:5px;
+}
+
+.btn_go{
+
+    font-size:1.5rem;
+}
+
+.btn_demo{
+
+    margin-top:50px;
+    font-size:2rem;
+    font-style:italic;
+    font-weight:normal;
+}
+
+.btn_name{
+
+    margin:10px;
+    font-size:1.2rem;
+    background-color:black;
+}
+
+#top_container{
+
+	display:flex;
+	flex-direction:row;
+	margin-top:70px;
+}
+
+#vertical_container, #horizontal_container{
+
+	display:flex;
+    flex-direction: column;
+}
+
+.console_user{
+
+    width:60%;
+	height:200px;
+	margin:5px;
+}
+
+
+.console_user{
+
+	background-color:black;
+    color:white;
+    font-size:.8rem;
+    text-align:left;
+    border:2px dotted midnightblue;
+    padding:10px;
+    box-shadow:0 0 5px 5px white;
+    overflow-y: scroll;
+    overflow-x:visible;
+    transition:height .4s;
+    border-radius:10px;
+}
+
+#monitor, #msg_box{
+
+    width:90%;
+	height:300px;
+	margin:10px;
+}
+
+#monitor{
+   
+	z-index:10;
+}
+
+.console_user{
+
+	height:50px;
+}
+
+#msg_box{
+
+	height:200px;
+    color:Gold;
+	text-align:left;
+	border-radius:10px;
+    z-index:40;
+}
+
+.col1{
+    margin-left:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    position:absolute;
+}
+
+
+.buton1{
+    width:50px;
+    height:50px;
+    cursor:pointer;
+    transition:1s;
+}
+
+.buton1:hover{
+    transform:scale(1.2);
+    transform:rotate(-360deg);
+}
+
+@media(max-width:280px){
+
+    .canvas_container{
+        
+        height:480px;
+    }
+
+	.console_user{
+
+		height:80px;
+	}
+
+	.canvases{
+
+		height:300px;
+	}
+	
+	#msg_box, #monitor{
+
+		height:220px;
+	}
+}
+
+
+@media(min-width:540px){
+
+    .team_img{
+    
+        margin-left:30px;
+    }
+
+    .players_it{
+
+        width:30px;
+        height:30px;
+        margin-left:10px;
+    }
+
+    .players_i{
+
+        margin-left:5px;
+    }
+
+    .players_p, .players_dom_scores{
+    
+        margin-left:10px;
+        font-size:1rem;
+    }
+    
+    .players_div, .players_div_bottom{
+    
+        display:flex;
+        flex-direction:row;
+    }
+
+    .players_active_div{
+    
+        display:flex;
+        flex-direction:row;
+        border:5px solid LightSeaGreen;
+        width:185px;
+    }
+
+    #horizontal_container{
+	
+    	flex-direction: row;
+	}	
+
+	.console_user{
+
+		height:50px;
+	}
+	
+	.canvas_container{
+        
+        height:420px;
+    }
+	
+	.canvases{
+
+		height:400px;
+		width:60%;
+	}
+	
+	#msg_box{
+
+		height:300px;
+		font-size:.7rem;
+	}
+
+    .notify{
+
+        font-size:1.5rem;
+        height:70px;
+    }
+
+    .active{
+
+        font-size:1.5rem;
+        height:70px;
+    }
+}
+
+@media(max-width:540px){
+
+    .team_img{
+    
+        margin-left:15px;
+    }
+
+    #modal_title{
+    
+        font-size:.5rem;
+    }
+
+    .teams_dom_scores{
+
+        margin-left:0px;
+        font-size:.6rem;
+    }
+
+    .players_dom_scores{
+
+        margin-left:30px;
+        font-size:.6rem;
+    }
+
+    .players_i{
+
+        margin-left:15px;
+        width:30px;
+        height:30px;
+        margin-top:5px;
+    }
+    
+    .players_it{
+
+        margin-left:0px;
+    }
+
+    .players_p{
+    
+        font-size:.6rem;
+        margin-left:0px;
+    }
+    
+    .players_div{
+    
+            display:flex;
+            flex-direction:column;         
+            width:65px;
+    } 
+    
+    .players_div_bottom{
+    
+            display:flex;
+            flex-direction:row;         
+            width:65px;
+    } 
+
+    .players_active_div{
+    
+        display:flex;
+        flex-direction:column;
+        border:3px solid LightSeaGreen;
+        width:65px;
+    }
+
+    #btn_go{
+    
+        font-size:.6rem;
+    }
+
+
+    #msg_box{
+
+		text-align:center;
+	    margin-top:-70px;
+	}
+	
+	.canvas_container{
+        
+        height:420px;
+    }
+	
+	.canvases{
+
+		height:400px;
+	}
+
+    .notify{
+
+        font-size:1rem;
+        height:70px;
+    }
+
+    .active{
+
+        font-size:1rem;
+        height:70px;
+    }
+}
+
+
+@media(min-width:640px){
+
+        #modal_title{
+    
+            font-size:1rem;
+        }
+
+        .players_it{
+
+            width:40px;
+            height:40px;
+        }
+
+        .players_active_div{
+    
+            width:220px;
+        }
+
+        .players_dom_scores{
+        
+            font-size:1.2rem;
+        }
+
+        .players_p{
+    
+            font-size:1.2rem;
+        }
+        
+		#msg_box{
+		
+		    text-align:left;
+		    font-size:0.9rem;
+	    }
+}
+
+@media(min-width:768px){
+
+    .players_it{
+
+            width:40px;
+            height:40px;
+     }
+
+    .players_container{
+
+            margin-left:100px;
+    }
+	
+	.canvases{
+
+		height:400px;
+		width:40%;
+	}
+	
+	#msg_box, #monitor{
+
+		height:350px;
+		font-size:1rem;
+	}
+}
+
+@media(min-width:1024px){
+
+	.canvases{
+
+		height:400px;
+	}
+	
+	#msg_box, #monitor{
+
+		height:350px;
+	}
+	
+	#monitor{
+
+		margin-right:50px;
+	}
+	
+	#msg_box{
+
+		margin-left:30px;
+	}
+
+    .notify{
+
+        font-size:2.5rem;
+        height:100px;
+    }
+
+    .active{
+
+        font-size:2.5rem;
+        height:100px;
+    }
+}
+
+
+
+
+
+/* ----------------- MODAL */
+
+
+.modal{
+
+    display:none;
+    position:fixed;
+    z-index:50;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    overflow:auto;
+    background-color:rgba(0,0,0,0.5);
+    color:white;
+}
+
+.modal-content{
+
+    background-color:DarkSalmon;
+    margin:20% auto;
+    width:70%;
+    box-shadow:0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name:modalopen;
+    animation-duration:1s;
+    font-size:1.2rem;
+    font-weight:bold;
+    border-radius:10px;
+}
+
+.modal-header{
+
+    background:DarkSlateBlue;
+    text-align:center;
+    padding:5px;
+    color:White;
+    height:20px;
+    border-radius:10px 10px 0px 0px;
+}
+
+.modal-header h2, .modal-footer h3{
+
+    margin:0;
+}
+
+.modal-body{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.modal-cont, .modal-cont-go{
+
+    padding:10px 20px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.modal-cont-go{
+
+    justify-content:center;   
+}
+
+
+
+.closeBtn{
+
+    color:white;
+    float:right;
+    font-size:20px;
+}
+
+.closeBtn:hover,.closeBtn:focus{
+    color:black;
+    cursor:pointer;
+}
+
+.modal_box{
+
+    margin:10px;
+}
+
+.modal_img{
+
+    width:100px;
+    height:70%;
+}
+
+@keyframes modalopen{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+/* ----------------- MODAL */
+
+@font-face {
+
+    font-family:"MeriendaOne";
+    src: url("MeriendaOne-Regular.ttf");
+}
+
+
