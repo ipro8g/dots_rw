@@ -449,8 +449,6 @@ http.createServer((request, response) => {
                                     cont_reject++;    
                                 }
                             })
-                            
-                            console.log(cont_reject);
 
                             if(cont_reject > 4 || logs[1].length > 9){
 
