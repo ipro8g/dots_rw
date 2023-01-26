@@ -12,15 +12,15 @@ const port = "3000";
 
 // DISABLE THIS hostname FOR INTRANET USE
 
-//const hostname = "localhost";
+const hostname = "localhost";
 
 
 
 //ENABLE THIS ip AND hostname FOR INTRANET USE
 
-var ip = require("ip");
+//var ip = require("ip");
 
-const hostname = ip.address();
+//const hostname = ip.address();
 
 
 
