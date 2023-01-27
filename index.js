@@ -6,13 +6,13 @@ let path = require("path");
 
 let fs = require("fs");
 
-const port = "3000";
+const port = $PORT;
 
 
 
 // DISABLE THIS hostname FOR INTRANET USE
 
-const hostname = "localhost";
+const hostname = "0.0.0.0";
 
 
 
