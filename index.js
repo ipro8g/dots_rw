@@ -36,12 +36,9 @@ let sendInterval = 1000;
 
 function sendServerSendEvent(req, res) {
 
- res.writeHead(200, {
-
-    "Content-Type" : "text/event-stream",
-    "Cache-Control" : "no-cache",
-    "Connection" : "keep-alive"
- });
+ res.setHeader('Access-Control-Allow-Origin', '*'); /* @dev First, read about security */
+res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+res.setHeader('Access-Control-Max-Age', 2592000);
 
  res.writeHead(200, {
 
@@ -377,7 +374,9 @@ function writeServerSendEvent(res, sseId, data) {
 
 http.createServer((request, response) => {
 
-    
+    response.setHeader('Access-Control-Allow-Origin', '*'); /* @dev First, read about security */
+response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+response.setHeader('Access-Control-Max-Age', 2592000);
 
     if(request.method === "POST"){
 
