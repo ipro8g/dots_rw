@@ -35,6 +35,21 @@ let time_p2;
 let sendInterval = 1000;
 
 function sendServerSendEvent(req, res) {
+ 
+  res.setHeader('Access-Control-Allow-Credentials', true);
+ res.setHeader('Access-Control-Allow-Origin', '*');
+ res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+ res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
+
+ res.writeHead(200, {
+
+    "Content-Type" : "text/event-stream",
+    "Cache-Control" : "no-cache",
+    "Connection" : "keep-alive"
+ });
 
  res.writeHead(200, {
 
