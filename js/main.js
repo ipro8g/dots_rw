@@ -301,7 +301,7 @@ function charge(){
         }); 
     }
 
-    ws = new EventSource(window.location.origin + "/talk");
+    ws = new EventSource("/talk");
 
     ws.onmessage = (event)=>{
 
