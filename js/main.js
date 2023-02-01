@@ -301,7 +301,7 @@ function charge(){
         }); 
     }
 
-    ws = new EventSource(window.location.origin + "/talk");
+    ws = new EventSource("http://0.0.0.0:3000/talk");
 
     ws.onmessage = (event)=>{
 
