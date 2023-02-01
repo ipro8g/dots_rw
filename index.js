@@ -6,7 +6,7 @@ let path = require("path");
 
 let fs = require("fs");
 
-const port = 3000;
+const port = process.env.PORT;
 
 
 
